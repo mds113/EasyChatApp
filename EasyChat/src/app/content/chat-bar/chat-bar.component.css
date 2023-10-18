@@ -1,38 +1,55 @@
 /* AK3: Das Eingabefeld sollte weiß (#FFFFFF) sein */
 .container {
-    background-color: #FFFFFF;
-    padding-top: 20px; /* AK4: Platz oberhalb des Containers */
-    padding-bottom: 20px; /* AK4: Platz unterhalb des Containers */
-  }
-  
-  #inputText {
-    width: 100%;
-    margin-bottom: 15px; /* Abstand unterhalb des Textareas */
-  }
-
-  #inputText:hover {
-    border: 1px solid #8C195F; /* Nice Effekt */
-    transition: border 0.3s;
+  background-color: #FFFFFF;
+  padding-top: 20px; /* AK4: Platz oberhalb des Containers */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-  /* AK6: Der Button sollte unterhalb und zentral vom Eingabefeld sein */
-  #submitButton {
-    margin-top: 15px;
-    display: block; /* Um die volle Breite zu nutzen */
-    margin: 0 auto; /* Horizontal zentriert */
-    text-align: center; /* Optional: Falls der Text im Button zentriert sein soll */
-    /* AK7: Der Button sollte irgendeine OST-Farbe haben, die zum Logo passt */
-    background-color: #8C195F; /* OST-Farbe */
-    color: #FFFFFF; /* Textfarbe des Buttons */
-  }
-  
-  /* AK8: Die Schriftart sollte Arial 12 sein */
-  body {
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-  }  
+.message-container {
+  overflow-y: scroll;
+  max-height: 400px; /* Beispielhöhe; an Anforderungen anpassen */
+  display: flex;
+  flex-direction: column-reverse; /* Ändern der Reihenfolge der Nachrichten */
+  border: 1px solid #8C195F; /* Nice Effekt */
+  transition: border 0.3s;
+}
+
+.message {
+  background-color: #e2e2e2;
+  padding: 10px;
+  margin: 10px;
+}
+
+#inputText {
+  width: 100%;
+  margin-bottom: 15px; /* Abstand unterhalb des Textareas */
+}
+
+#inputText:hover {
+  border: 1px solid #8C195F; /* Nice Effekt */
+  transition: border 0.3s;
+}
+
+/* AK6: Der Button sollte unterhalb und zentral vom Eingabefeld sein */
+#submitButton {
+  margin-top: 15px;
+  display: block; /* Um die volle Breite zu nutzen */
+  margin: 0 auto; /* Horizontal zentriert */
+  text-align: center; /* Optional: Falls der Text im Button zentriert sein soll */
+  /* AK7: Der Button sollte irgendeine OST-Farbe haben, die zum Logo passt */
+  background-color: #8C195F; /* OST-Farbe */
+  color: #FFFFFF; /* Textfarbe des Buttons */
+}
+
+/* AK8: Die Schriftart sollte Arial 12 sein */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
 
 .no-resize {
-    resize: none; /* Dieser Stil verhindert die Größenänderung des Textareas */
-  }
-  
+  resize: none; /* Dieser Stil verhindert die Größenänderung des Textareas */
+
+}
