@@ -54,3 +54,9 @@ body {
   resize: none; /* Dieser Stil verhindert die Größenänderung des Textareas */
 
 }
+
+#messageDiv{
+  border-color: #8C195F;
+  border-style: solid;
+  min-height:  50px;
+}
