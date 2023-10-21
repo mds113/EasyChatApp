@@ -5,8 +5,8 @@
         {{ message }}
       </div>
     </div> --> 
-    <p id="messageDiv" class="mt-2">{{ inputText }}</p>
-    <textarea [(ngModel)]="inputText" (keyup.enter)="sendMessage()" class="form-control no-resize" rows="3" placeholder="Geben Sie Ihre Nachricht hier ein"></textarea>
+    <p id="messageDiv"  class="mt-2">{{ inputText }}</p>
+    <textarea maxlength="200" [(ngModel)]="inputText" (keyup.enter)="sendMessage()" class="form-control no-resize" rows="3" placeholder="Geben Sie Ihre Nachricht hier ein"></textarea>
     <button id="submitButton" class="btn btn-primary btn-block mt-3 text-center" (click)="sendMessage()" [disabled]="!inputText">Senden</button>
   </div>
 </div>

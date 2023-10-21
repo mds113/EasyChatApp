@@ -35,6 +35,7 @@ export class ChatBarComponent implements OnInit {
       //this.addMessage(this.inputText); // Nachricht dem Chat-Verlauf Array hinzufügen
       this.message = this.inputText; // Die Ausgabe-Nachricht wird auf den Wert des Eingabefelds gesetzt
       this.inputText = ''; // TODO abklären was geschehen soll, sobald auf senden geklickt wurde: Nachricht löschen aus dem Nachrichtenfeld?
+      alert(this.message);
     }
   }
   
