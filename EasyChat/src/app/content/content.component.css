@@ -1,12 +1,66 @@
-#container{
-    background-color: white;
-    text-align: center;
-    margin-bottom: 5px;
+/* Set the container to take the full height of the page */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Create a container for the chat area */
+#chatcontainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+/* Style the chat history */
+#chathistory{
+  flex: 1;
+  /*overflow-y: auto;*/
+  word-break: break-all;
+  /*padding: 10px;*/
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+/* Style the chat bar */
+#chatbar{
+  background-color: #fff;
+  padding: 10px;
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+  /* For smaller screens, make the chat bar and chat history take up the full height */
+  .chat-history, .chat-bar {
+    flex: 1;
+  }
+}
+/*
+#chatcontainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-origin: padding-box;
+  bottom: 0;
+  width: 100%;
+  position: absolute;
 }
 #chatbar
 {
-    position: absolute;
+
+    flex: auto; 
     bottom: 0;
     width: 100%;
     margin-bottom: 20px;
 }
+
+  
+ #chathistory {
+    flex: auto;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  */

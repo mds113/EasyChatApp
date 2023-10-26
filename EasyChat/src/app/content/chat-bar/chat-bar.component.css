@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: space-between;
   word-break: break-all;
+  white-space: pre;
 }
 
 .message-container {
@@ -51,12 +52,8 @@ body {
 }
 
 .no-resize {
-  resize: none; /* Dieser Stil verhindert die Größenänderung des Textareas */
+  resize: none; /* Dieser Stil verhindert die Grössenänderung des Textareas */
 
 }
 
-#messageDiv{
-  border-color: #8C195F;
-  border-style: solid;
-  min-height:  50px;
-}
+
