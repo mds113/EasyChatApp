@@ -6,7 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   /*min-height: 100vh;*/
-  background-color: brown;
+  background-color: white;
 
 }
 
@@ -20,16 +20,16 @@ body {
   bottom: 0;
   width: 100%;
   position: absolute;
+  max-height: 100vh;
+
 }
 
 /* Style the main content area (above the footer) */
 #content {
   flex: 1;
-
   padding: 20px;
   background-color: #fff;
   word-break: break-all;
-
 }
 
 
@@ -39,9 +39,7 @@ body {
   #content {
     padding: 10px;
   }
-  #footercontent {
-    padding: 5px;
-  }
+  
 }
 
 /*

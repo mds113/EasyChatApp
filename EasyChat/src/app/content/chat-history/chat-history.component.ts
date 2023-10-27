@@ -1,4 +1,4 @@
-import { Component,Input, Output,EventEmitter } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewChecked} from '@angular/core';
 
 @Component({
   selector: 'app-chat-history',
@@ -8,9 +8,9 @@ import { Component,Input, Output,EventEmitter } from '@angular/core';
 })
 export class ChatHistoryComponent {
   constructor() {}
-
+ 
+ 
   private reMessages: string[] = [];
-  //private reMessageText: string = '';
   @Input()
   public testvariable : string[] = [];
   
@@ -31,28 +31,12 @@ export class ChatHistoryComponent {
    messageArray = this.receivedMessages;
    for(var index in messageArray)
    {
-    //alert(messageArray[index]);
+    alert(messageArray[index]);
     returnString += messageArray[index]
    }
 
    return returnString;
 
   }
-
-  
-  /*
-  get receivedMessage(): string{
-    return this.reMessageText;
-  }
-
-
-  @Input()
-  set receivedMessage(value:string){
-    this.reMessageText = value;
-  }
- */ 
-
-
-
-
+ 
 }

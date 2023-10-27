@@ -14,22 +14,25 @@
     background-color: #fff;
     border-color: #8C195F;
     border-style: solid;
-    padding-top: 10px; 
+    border-radius: 15px;
+    padding-top: 5px; 
+    padding-bottom: 5px;
     flex-direction: column;
     justify-content: space-between;
     word-break: break-all;
-    
-    height: 80%; 
+    top: 0;
+    height: 100%; 
   }
 
   #chat-container {
     display: flex;
-    
     flex-direction: column-reverse; 
-    /*margin-top: auto; */
+    margin-top: auto; 
     margin: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
     max-height: 100%; 
     word-break: break-all;
+    max-height: 60vh;
+    overflow-y: auto;
   }
