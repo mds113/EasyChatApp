@@ -6,7 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   /*min-height: 100vh;*/
-  background-color: white;
+  background-color: #fff;
 
 }
 
@@ -20,7 +20,7 @@ body {
   bottom: 0;
   width: 100%;
   position: absolute;
-  max-height: 100vh;
+  
 
 }
 
@@ -32,12 +32,22 @@ body {
   word-break: break-all;
 }
 
+#headercontent{
+  height: 10%;
+}
+
+#footercontent{
+  height: 5%;
+  background-color: #A0A0A0;
+  text-align: center;
+  bottom: 0;
+}
 
 /* Media Query for responsiveness */
 @media (max-width: 768px) {
   /* For smaller screens, adjust the layout */
   #content {
-    padding: 10px;
+    padding: 10px; 
   }
   
 }

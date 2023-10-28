@@ -1,6 +1,6 @@
 <div class="container">
   <div class="form-group mb-3">
-    <textarea maxlength="200" [(ngModel)]="chatMessage" (keyup.enter)="sendMessage()" class="form-control no-resize" rows="3" placeholder="Geben Sie Ihre Nachricht hier ein"></textarea>
+    <textarea maxlength="200" [(ngModel)]="chatMessage" (keyup.enter)="sendMessage()" class="form-control no-resize" rows="3" placeholder="Geben Sie Ihre Nachricht hier ein (Max. 200 Zeichen)"></textarea>
     <button id="submitButton" class="btn btn-danger btn-block mt-3 text-center" (click)="sendMessage()" [disabled]="!chatMessage">Senden</button>
   </div>
 </div>

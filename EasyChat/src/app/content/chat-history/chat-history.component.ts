@@ -15,15 +15,14 @@ export class ChatHistoryComponent {
   public testvariable : string[] = [];
   
   get receivedMessages(): string[]{
-    //alert(this.reMessages);
     
     return this.reMessages;
   }
+  
   @Input()
   set receivedMessages(messages: string[]){
     this.reMessages = messages;
   }
-
 
   allMessages():string{
    var returnString:string = '';
