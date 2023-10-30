@@ -11,14 +11,13 @@ export class ChatHistoryComponent {
  
  
   private reMessages: string[] = [];
-  @Input()
-  public testvariable : string[] = [];
+  
   
   get receivedMessages(): string[]{
     
     return this.reMessages;
   }
-  
+
   @Input()
   set receivedMessages(messages: string[]){
     this.reMessages = messages;
@@ -33,9 +32,7 @@ export class ChatHistoryComponent {
     alert(messageArray[index]);
     returnString += messageArray[index]
    }
-
    return returnString;
-
   }
  
 }

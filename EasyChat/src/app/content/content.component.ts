@@ -19,23 +19,7 @@ export class ContentComponent {
   
 
   addMessage(message:string){
-    this.messages.push(message);
+    this.messages.unshift(message);
   }
-
-
-  /*
-  private messages: string[] = [];
-
-  get getMessages(): string[]{
-    return this.messages;
-  }
-  set setMessages(messages:string[]){
-    this.messages = messages;
-  }
-
-  addMessage(message:string){
-    this.messages.push(message);
-  }
-*/
 
 }

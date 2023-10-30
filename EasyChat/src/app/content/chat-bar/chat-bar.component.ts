@@ -12,21 +12,11 @@ export class ChatBarComponent {
 
   
   private messageText: string = '';
-  //private messages: string[] = [];
 
-  //public message: string = '';
-
-  // @Input()
-  // chatMessage: string;
   
   get chatMessage(): string {
     return this.messageText;
   }
-  /*
-  get chatMessages(): string[] {
-    return this.messages;
-  }
-  */
 
 @Output() 
   chatMessageChange = new EventEmitter<string>();
@@ -34,21 +24,12 @@ export class ChatBarComponent {
   @Input()
   set chatMessage(value:string) {
     this.messageText = value;
-    //this.chatMessageChange.emit(this.messageText);
   }
 
-  /*
-  @Input()
-  set chatMessages(value:string)
-  {
-    this.messages.push(value);
-  }
-  */
 
   public sendMessage(): void {
 
       if (this.messageText){
-        //this.messages.push(this.messageText + '<br/>');
         this.chatMessageChange.emit(this.chatMessage);
         this.chatMessage = '';
       }
