@@ -1,4 +1,5 @@
 import { Component, Input,Output,EventEmitter } from '@angular/core';
+import { PersonService } from 'src/app/person.service';
 
 @Component({
   selector: 'app-chat-bar',
@@ -7,7 +8,7 @@ import { Component, Input,Output,EventEmitter } from '@angular/core';
 })
 export class ChatBarComponent {
 
-  constructor() {}
+  constructor(public pService: PersonService) {}
   
 
   
@@ -29,10 +30,16 @@ export class ChatBarComponent {
 
   public sendMessage(): void {
 
+
+    if(this.pService.nickname==''){
+      alert('Nickname ist leer.');
+    }else{
       if (this.messageText){
         this.chatMessageChange.emit(this.chatMessage);
         this.chatMessage = '';
       }
+    }
+      
   }
   
 }

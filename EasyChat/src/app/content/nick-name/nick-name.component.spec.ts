@@ -1,18 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { NickNameComponent } from './nick-name.component';
 
-
-import { ChatBarComponent } from './chat-bar.component';
-
-describe('ChatBarComponent', () => {
-  let component: ChatBarComponent;
-  let fixture: ComponentFixture<ChatBarComponent>;
+describe('NickNameComponent', () => {
+  let component: NickNameComponent;
+  let fixture: ComponentFixture<NickNameComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ChatBarComponent]
+      declarations: [NickNameComponent]
     });
-    fixture = TestBed.createComponent(ChatBarComponent);
+    fixture = TestBed.createComponent(NickNameComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

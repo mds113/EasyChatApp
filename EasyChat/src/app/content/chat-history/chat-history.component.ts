@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewChecked} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewChecked, Output} from '@angular/core';
+import { PersonService } from 'src/app/person.service';
 
 @Component({
   selector: 'app-chat-history',
@@ -7,10 +8,13 @@ import { Component, Input, OnChanges, SimpleChanges, ElementRef, ViewChild, Afte
   styleUrls: ['./chat-history.component.css']
 })
 export class ChatHistoryComponent {
-  constructor() {}
+  constructor(public pService: PersonService) {}
  
  
   private reMessages: string[] = [];
+  @Output()
+  public nickname: string = '';
+  
   
   
   get receivedMessages(): string[]{
@@ -21,6 +25,7 @@ export class ChatHistoryComponent {
   @Input()
   set receivedMessages(messages: string[]){
     this.reMessages = messages;
+    this.nickname = this.pService.nickname;
   }
 
   allMessages():string{

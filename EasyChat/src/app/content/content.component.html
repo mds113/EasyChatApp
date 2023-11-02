@@ -1,6 +1,12 @@
+<div id="current User ID">
+    <p class="p text-center">Aktueller Nickname: <b>{{currentNickname}}</b></p>
+</div>
 <div id="chatcontainer" >
     <div id="chathistory">
         <app-chat-history [receivedMessages]="getMessages"></app-chat-history>
+    </div>
+    <div id="nickname">
+        <app-nick-name (nicknameChange)="addNicknametoDisplay($event)"></app-nick-name>
     </div>
     <div id="chatbar">
         <app-chat-bar (chatMessageChange)="addMessage($event)"></app-chat-bar>
