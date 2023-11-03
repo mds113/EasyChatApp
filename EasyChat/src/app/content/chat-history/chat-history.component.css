@@ -36,3 +36,9 @@
     max-height: 30vh;
     overflow-y: auto;
   }
+
+  #allmessages{
+    word-break: break-all;
+    display: block;
+    white-space: pre-wrap;
+  }
