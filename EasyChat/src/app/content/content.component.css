@@ -18,52 +18,25 @@ html, body {
 /* Style the chat history */
 #chathistory{
   flex: 1;
-  /*overflow-y: auto;*/
   word-break: break-all;
-  /*padding: 10px;*/
   padding-top: 1px;
   padding-bottom: 1px;
- /* height: 70%;*/
+
 }
 
 /* Style the chat bar */
 #chatbar{
   background-color: #fff;
   padding: 10px;
-  /*height: 30%;*/
+
 }
 
-/* Media Query for responsiveness */
 @media (max-width: 768px) {
-  /* For smaller screens, make the chat bar and chat history take up the full height */
-  .chat-history, .chat-bar {
-    flex: 1;
+  #chatcontainer {
+    flex-direction: column;
   }
-}
-/*
-#chatcontainer {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background-origin: padding-box;
-  bottom: 0;
-  width: 100%;
-  position: absolute;
-}
-#chatbar
-{
-
-    flex: auto; 
-    bottom: 0;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
   
- #chathistory {
-    flex: auto;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    padding: 10px;
+  #chathistory, #chatbar {
+    height: auto; 
   }
-  */
+}

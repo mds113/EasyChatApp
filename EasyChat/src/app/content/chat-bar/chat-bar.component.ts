@@ -30,7 +30,7 @@ export class ChatBarComponent {
 
   public sendMessage(): void {
 
-
+    this.messageText = this.messageText.trim();
     if(this.pService.nickname==''){
       alert('Nickname ist leer.');
     }else{

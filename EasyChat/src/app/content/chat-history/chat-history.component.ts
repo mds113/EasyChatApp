@@ -8,7 +8,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   styleUrls: ['./chat-history.component.css']
 })
 export class ChatHistoryComponent {
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer,
+    public pService: PersonService) {}
  
  
   private reMessages: string[] = [];
