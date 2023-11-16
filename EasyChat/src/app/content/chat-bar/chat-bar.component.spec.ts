@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-
-
 import { ChatBarComponent } from './chat-bar.component';
+import { FormsModule } from '@angular/forms';
 
 describe('ChatBarComponent', () => {
   let component: ChatBarComponent;
@@ -10,7 +9,8 @@ describe('ChatBarComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ChatBarComponent]
+      declarations: [ChatBarComponent],
+      imports: [FormsModule]
     });
     fixture = TestBed.createComponent(ChatBarComponent);
     component = fixture.componentInstance;

@@ -1,22 +1,65 @@
-#container{
-    background-color: white;
-    border-bottom: 2px solid black;
-    position: relative;
-    
-}
-#logoContainer{
-    position: absolute;
-    top: 0;
-    padding-top: 2px;
-    padding-right:10px;
-    padding-bottom: 2px;
-    right: 0;
-    height: 100%;
+/* Grundlegende Stile für den Header */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+#header {
     display: flex;
     align-items: center;
-}
+    padding: 10px;
+    /* Beispiel: Verlaufsfarben */
+    background-color: white;
+    color: black; /* Textfarbe auf dem Header-Hintergrund */
+    font-family: 'Oswald', sans-serif; /* Schriftart */
 
-#ostImage{
-    max-height: 100%;
-    width: auto;
+  }
+  
+  .bottom {
+	position: relative;
+	height: 5px;
+	background: linear-gradient(to right, #3DF360,#3DEB5D , #097533, #043929);
 }
+  /* Stile für das Logo */
+  #logoContainer {
+    flex: 0 0 auto; /* Kein Flex-Wachstum, fixe Größe für das Logo */
+  }
+  
+  #ostImage {
+    max-width: 100px; /* Beispiel: Maximalbreite des Logos */
+    height: auto;
+  }
+  
+  /* Stile für den Text neben dem Logo */
+  #textContainer {
+    flex: 1; /* Flexibles Wachstum, nimmt verfügbaren Platz ein */
+    margin-left: 20px; /* Beispiel: Abstand zwischen Logo und Text */
+  }
+  
+  /* Media Queries für verschiedene Bildschirmgrößen */
+  @media screen and (max-width: 768px) {
+    /* Anpassungen für kleinere Bildschirmgrößen */
+    #header {
+      padding: 5px;
+    }
+    
+    #ostImage {
+      max-width: 80px; /* Beispiel: Verkleinertes Logo bei kleineren Bildschirmen */
+    }
+    
+    #textContainer {
+      margin-left: 10px; /* Beispiel: Verringerte Abstände bei kleineren Bildschirmen */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    /* Anpassungen für noch kleinere Bildschirmgrößen */
+    #header {
+      padding: 3px;
+    }
+    
+    #ostImage {
+      max-width: 60px; /* Beispiel: Weiter verkleinertes Logo bei noch kleineren Bildschirmen */
+    }
+    
+    #textContainer {
+      margin-left: 5px; /* Beispiel: Noch geringere Abstände bei noch kleineren Bildschirmen */
+    }
+  }

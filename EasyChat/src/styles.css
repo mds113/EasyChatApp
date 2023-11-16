@@ -2,7 +2,7 @@
 body{
     display: flex;
     flex-direction: column;
-    background-color: aqua;
+    background-color: white;
 }
 #approot{
     bottom: 0;

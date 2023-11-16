@@ -1,48 +1,49 @@
-import { Component, Input, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewChecked, Output} from '@angular/core';
-import { PersonService } from 'src/app/person.service';
+import { Component, Input, ElementRef, ViewChild, AfterViewChecked } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-chat-history',
   templateUrl: './chat-history.component.html',
-  //template: `<p *ngFor="let person of receivedMessages" id="allmessages" class="mt-2">{{person}}</p>`,
   styleUrls: ['./chat-history.component.css']
 })
-export class ChatHistoryComponent {
-  constructor(private sanitizer: DomSanitizer,
-    public pService: PersonService) {}
- 
- 
+export class ChatHistoryComponent implements AfterViewChecked {
+
+  constructor(private sanitizer: DomSanitizer) {}
+
   private reMessages: string[] = [];
-  @Output()
-  public nickname: string = '';
-  
-  
-  
-  get receivedMessages(): string[]{
-    
+
+  @ViewChild('chatContainer') private chatContainer!: ElementRef;
+
+  @Input()
+  set receivedMessages(messages: string[]) {
+    this.reMessages = messages;
+  }
+
+  get receivedMessages(): string[] {
     return this.reMessages;
   }
 
-  @Input()
-  set receivedMessages(messages: string[]){
-    this.reMessages = messages;
-    
+  ngAfterViewChecked(): void {
+    this.scrollToBottom();
   }
 
-  allMessages():string{
-   var returnString:string = '';
-   var messageArray:String[] = [];
-   messageArray = this.receivedMessages;
-   for(var index in messageArray)
-   {
-    alert(messageArray[index]);
-    returnString += messageArray[index]
-   }
-   return returnString;
+  allMessages(): string {
+    return this.receivedMessages.join('');
   }
- 
+
+  isSystemMessage(message: string): boolean {
+    return message.includes('ist dem Chat beigetreten.') || message.includes('hat den Nicknamen zu');
+  }
 
   sanitizeMessage(message: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(message);
+  }
+
+  private scrollToBottom(): void {
+    try {
+      this.chatContainer.nativeElement.scrollTop = this.chatContainer.nativeElement.scrollHeight;
+    } catch (err) {
+      console.error(err);
+    }
   }
 }

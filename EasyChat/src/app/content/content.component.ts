@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Output, ɵsetAlternateWeakRefImpl} from '@angular/core';
+// content.component.ts
+import { Component } from '@angular/core';
 import { PersonService } from 'src/app/person.service';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { TemplateBindingParseResult } from '@angular/compiler';
 
 @Component({
   selector: 'app-content',
@@ -10,93 +9,64 @@ import { TemplateBindingParseResult } from '@angular/compiler';
 })
 export class ContentComponent {
 
-  constructor (public pService: PersonService,
-    private sanitizer: DomSanitizer) {}
+  constructor(public pService: PersonService) {}
 
   private messages: string[] = [];
-  public currentNickname : string = '';
-   
+  public currentNickname: string = '';
 
-  get getMessages(): string[]{
+  get getMessages(): string[] {
     return this.messages;
   }
-  set setMessages(messages:string[]){
+
+  set setMessages(messages: string[]) {
     this.messages = messages;
   }
 
-  
+  addMessage(message: string) {
+    let displayNickname = true;
 
-  addMessage(message:string){
-    
     let numberOfChars: number = 0;
-    let nicknameLoc: string = '<b>'+ this.pService.nickname + '</b>' + ': ';
+    let nicknameLoc: string = '';
     let modifiedText: string = '';
     let blankspaceString: string = '';
-    let temmdu: string  ='';
-    let newLineBlankSpace: string ='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'
-    //let newLineBlankSpace: string = '                                           ';
-    numberOfChars = nicknameLoc.length;
-    numberOfChars = this.pService.nickname.length;
-
+    let blankspaceString2: string = '';
     
-    alert(numberOfChars);
-
-    for(let i = 0; i < numberOfChars + 2 ; i++){
-      blankspaceString += '&nbsp';
+    // Überprüfe, ob es sich um eine Systemmeldung handelt (beigetreten oder Nickname geändert)
+    if (message.includes('ist dem Chat beigetreten.') || message.includes('hat den Nicknamen zu')) {
+      displayNickname = false;
     }
 
-    
+    if (displayNickname && this.pService.nickname) {
+      numberOfChars = this.pService.nickname.length;
+      nicknameLoc = '<b>' + this.pService.nickname + '</b>' +':';
+      numberOfChars = this.pService.nickname.length;
 
-/*
-    for(let i = 0; i < 23 - numberOfChars; i++){
-      blankspaceString += ' ';
+      for (let i = 0; i < (25 - numberOfChars); i++) {
+        blankspaceString += ' ';
+      }
+
+
+      for (let i = 0; i < 28 ; i++) {
+        blankspaceString2 += ' ';
+      }
+
     }
-*/
+
+    for (let i = 0; i < 28 ; i++) {
+      blankspaceString2 += ' ';
+    }
+
+    modifiedText = message.replace(/[\n\r]+/g, '\n' +  blankspaceString2);
 
 
-    modifiedText = message.replace(/[\n\r]+/g, '\n'+ blankspaceString);
-    //modifiedText = message.replace(/[\n\r]+/g, '\n');
-    this.messages.unshift(nicknameLoc + modifiedText);
-    //this.messages.unshift(this.alignChatText(nicknameLoc + '  ' +modifiedText));
-
-
+    const newMessage = nicknameLoc + blankspaceString + modifiedText;
+    this.messages.push(newMessage);
     this.currentNickname = this.pService.nickname;
   }
 
-  addNicknametoDisplay(nichnameIn:string){
-    this.currentNickname = nichnameIn;
-  }
-
-
-
-  
-  alignChatText(chat: string): string {
-    const lines = chat.split('\n');
-    if (lines.length < 2) {
-      // No alignment needed if there's only one line
-      return chat;
-    }
-  
-    // Find the length of the nickname (assumed to be the first word in the first line)
-    const nicknameLength = lines[0].split(' ')[0].length;
-  
-    // Calculate the alignment position
-    const alignTo = nicknameLength + 1; // Adding 1 for space after the nickname
-  
-    // Align the text lines
-    const alignedLines = lines.map((line, index) => {
-      if (index === 0) {
-        // Keep the first line as is (contains the nickname)
-        return line;
-      } else {
-        // Calculate the number of spaces needed to align the text
-        const spacesNeeded = alignTo - line.length;
-        // Add the required number of spaces before the text
-        return ' '.repeat(spacesNeeded) + line;
-      }
-    });
-  
-    return alignedLines.join('\n');
+  addNicknametoDisplay(nicknameIn: string) {
+    // Übermittle die Meldung an die ChatHistoryComponent
+    this.addMessage(`${nicknameIn}`);
   }
 
 }

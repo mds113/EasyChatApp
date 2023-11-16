@@ -1,7 +1,7 @@
 /* AK3: Das Eingabefeld sollte weiß (#FFFFFF) sein */
 .container {
   background-color: #FFFFFF;
-  padding-top: 20px; /* AK4: Platz oberhalb des Containers */
+  padding-top: 10px; /* AK4: Platz oberhalb des Containers */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -15,7 +15,7 @@
   max-height: 400px; /* Beispielhöhe; an Anforderungen anpassen */
   display: flex;
   flex-direction: column-reverse; /* Ändern der Reihenfolge der Nachrichten */
-  border: 1px solid #8C195F; /* Nice Effekt */
+  border: 1px solid #097533; /* Nice Effekt */
   transition: border 0.3s;
 }
 
@@ -25,13 +25,13 @@
   margin: 10px;
 }
 
-#inputText {
+#inputNickname {
   width: 100%;
   margin-bottom: 15px; /* Abstand unterhalb des Textareas */
 }
 
-#inputText:hover {
-  border: 1px solid #8C195F; /* Nice Effekt */
+#inputNickname:hover {
+  border: 1px solid #097533; /* Nice Effekt */
   transition: border 0.3s;
 }
 
@@ -42,7 +42,7 @@
   margin: 0 auto; /* Horizontal zentriert */
   text-align: center; /* Optional: Falls der Text im Button zentriert sein soll */
   /* AK7: Der Button sollte irgendeine OST-Farbe haben, die zum Logo passt */
-  background-color: #8C195F; /* OST-Farbe */
+  background-color: #043929; /* OST-Farbe */
   color: #FFFFFF; /* Textfarbe des Buttons */
 }
 

@@ -25,7 +25,9 @@ body {
 
 /* Style the main content area (above the footer) */
 #content {
-  flex: 1;
+  flex: 2;
+  margin-top: 5px;
+  margin-bottom: 50px;
   padding: 20px;
   background-color: #fff;
   word-break: break-all;
@@ -37,7 +39,7 @@ body {
 
 #footercontent{
   height: 5%;
-  background-color: #A0A0A0;
+  background: linear-gradient(to right, #3DF360,#3DEB5D , #097533);
   text-align: center;
   bottom: 0;
 }

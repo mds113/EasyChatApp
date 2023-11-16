@@ -1,7 +1,13 @@
 <div id="container">
-    <div id="allchats" class="d-flex m-5">
-        <div id="chat-container">
-            <div *ngFor="let message of receivedMessages" id="allmessages" class="mt-2 no-resize" [innerHTML]="sanitizeMessage(message)"></div>
-        </div>
+  <div id="allchats">
+    <div id="shrink-container">
+      <!-- leerer Container der dafür sorgt, dass Nachrichten unten angezeigt werden. -->
     </div>
+    <div id="chat-container" #chatContainer>
+      <div *ngFor="let message of receivedMessages" id="allmessages" class="mt-2 no-resize"
+        [ngClass]="{'system-message': isSystemMessage(message), 'user-message': !isSystemMessage(message)}">
+        <span [innerHTML]="sanitizeMessage(message)"></span>
+      </div>
+    </div>
+  </div>
 </div>
